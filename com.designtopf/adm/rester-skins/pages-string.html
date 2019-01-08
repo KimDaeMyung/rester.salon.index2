@@ -1,0 +1,22 @@
+<form method="post" action="{{href_action}}">
+    <div class="m-portlet m-portlet--full-height">
+        <div class="m-portlet__head">
+            <div class="m-portlet__head-caption"><div class="m-portlet__head-title"><h3 class="m-portlet__head-text">{{pg_display_name}}</h3></div></div>
+            <div class="m-portlet__head-tools"> <div class="btn-group" role="group"> <button type="submit" class="m-btn btn btn-success"><i class="la la-floppy-o"></i> Save</button> <button type="reset" class="m-btn btn">Cancel</button> </div> </div>
+        </div>
+
+        <div class="m-portlet__body">
+            {{# desc }}<label>{{pg_config.desc}}</label>{{/ desc }}
+
+            {{# pg_content }}
+            {{#.}}
+            <div class="form-group m-form__group">
+                <label for="page-string-{{name}}">{{desc}}</label>
+                <input type="text" class="form-control m-input" id="page-string-{{name}}" name="string[{{name}}]" placeholder="{{name}}" value="{{value}}">
+            </div>
+            {{/.}}
+            {{/ pg_content }}
+
+        </div>
+    </div>
+</form>

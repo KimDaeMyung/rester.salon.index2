@@ -1,0 +1,17 @@
+<form method="post" action="{{href_action}}" class="form-ajax-image" enctype="multipart/form-data">
+    <div class="m-portlet m-portlet--full-height">
+        <div class="m-portlet__head">
+            <div class="m-portlet__head-caption"><div class="m-portlet__head-title"><h3 class="m-portlet__head-text">{{pg_display_name}}</h3></div></div>
+            <div class="m-portlet__head-tools"><button type="submit" class="m-btn btn btn-success"><i class="la la-floppy-o"></i> Save</button></div>
+        </div>
+
+        <div class="m-portlet__body">
+            {{# href_image }} <div class="m--margin-bottom-10"><img src="{{.}}" style="max-width: 100%;"></div> {{/ href_image }}
+            {{# pg_config.desc }}<label>{{.}}</label>{{/ pg_config.desc }}
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" name="image" id="image-upload-{{pg_name}}">
+                <label class="custom-file-label" for="image-upload-{{pg_name}}">파일을 선택하세요</label>
+            </div>
+        </div>
+    </div>
+</form>

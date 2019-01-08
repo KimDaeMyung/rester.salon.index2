@@ -1,0 +1,15 @@
+<form method="post" action="{{href_action}}">
+    <div class="m-portlet m-portlet--full-height">
+        <div class="m-portlet__head">
+            <div class="m-portlet__head-caption"><div class="m-portlet__head-title"><h3 class="m-portlet__head-text">{{pg_display_name}}</h3></div></div>
+            <div class="m-portlet__head-tools">
+                <button type="submit" class="m-btn btn btn-success"><i class="la la-floppy-o"></i> Save</button>
+            </div>
+        </div>
+
+        <div class="m-portlet__body">
+            {{# desc }}<label>{{pg_config.desc}}</label>{{/ desc }}
+            <textarea class="form-control m-input ckeditor" name="content" rows="6">{{pg_content}}</textarea>
+        </div>
+    </div>
+</form>

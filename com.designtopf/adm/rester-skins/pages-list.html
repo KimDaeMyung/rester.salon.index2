@@ -1,0 +1,85 @@
+<form method="post" action="{{href_action}}" class="m-form m-form--fit m-form--label-align-right page-list" enctype="multipart/form-data">
+    <div class="m-portlet m-portlet--full-height">
+        <div class="m-portlet__head">
+            <div class="m-portlet__head-caption"><div class="m-portlet__head-title"><h3 class="m-portlet__head-text">{{pg_display_name}}</h3></div></div>
+            <div class="m-portlet__head-tools"> <button type="submit" class="m-btn btn btn-success"><i class="la la-floppy-o"></i> Save</button> </div>
+        </div>
+
+        <div class="m-portlet__body">
+
+            {{# pg_config.desc }}<label class="m--margin-bottom-10">{{.}}</label>{{/ pg_config.desc }}
+
+            <div class="page-list-sortable">
+                {{# pg_content }}
+
+                <div class="m--margin-bottom-10">
+                    <div class="float-left m--margin-right-10"> <a href="#" class="btn btn-accent m-btn m-btn--icon m-btn--icon-only"> <i class="la la-sort"></i> </a> </div>
+                    {{#.}}
+
+                    {{# type_number }}
+                    <div class="float-left">
+                        <div class="form-group">
+                            <input class="form-control m-input" name="list[{{name}}][{{idx}}]" type="number" value="{{value}}" size="{{size}}" id="list_type_number_{{name}}" placeholder="{{name}}">
+                        </div>
+                    </div>
+                    {{/ type_number }}
+
+                    {{# type_string }}
+                    <div class="float-left">
+                        <div class="form-group">
+                            <input class="form-control m-input" name="list[{{name}}][{{idx}}]" type="text" value="{{value}}" size="{{size}}" id="list_type_string_{{name}}" placeholder="{{name}}">
+                        </div>
+                    </div>
+                    {{/ type_string }}
+
+                    {{# type_checkbox }}
+                    <div class="float-left m--margin-left-10 m--margin-top-10">
+                        <div class="form-group">
+                            <div>
+                                <label class="m-checkbox">
+                                    <input type="checkbox" name="list[{{name}}][{{idx}}]" value="1" {{#value}}checked="checked"{{/value}}> {{name}}
+                                    <span></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    {{/ type_checkbox }}
+
+                    {{# type_select }}
+                    <div class="float-left">
+                        <div class="form-group">
+                            <select class="form-control m-input" name="list[{{name}}][{{idx}}]">
+                                <option value="">{{name}} 선택하세요</option>
+                                {{# list }}
+                                <option value="{{.}}">{{.}}</option>
+                                {{/ list}}
+                            </select>
+                        </div>
+                    </div>
+                    {{/ type_select }}
+
+                    {{# type_image }}
+                    <div class="thumb">
+                        {{# thumb }} <div class="float-left m--margin-right-10"><a href="{{href_image}}" class="colorbox"><img src="{{href_thumb}}?thumb=true&height=40"></a></div> {{/ thumb }}
+                    </div>
+                    <div class="float-left">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input {{^ thumb }}required{{/ thumb }}" name="image[{{name}}][{{idx}}]">
+                            <label class="custom-file-label">파일 업로드</label>
+                        </div>
+                    </div>
+                    {{/ type_image }}
+
+                    {{/.}}
+
+                    <div class="float-left m--margin-left-10"> <a href="#" class="btn btn-danger m-btn m-btn--icon m-btn--icon-only page-list-close"> <i class="la la-close"></i> </a> </div>
+                    <div style="clear:both;"> <div class="m-separator m-separator--dashed"></div> </div>
+                </div>
+
+                {{/ pg_content }}
+            </div>
+
+            <a href="#" class="btn btn-success m-btn m-btn--icon m-btn--wide page-list-add"> <span><i class="la la-plus"></i> <span>Add</span></span> </a>
+        </div>
+    </div>
+</form>
